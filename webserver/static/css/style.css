@@ -1,0 +1,53 @@
+body {
+    font-family: Arial, sans-serif;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+header nav#navbar {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    height: 10vh;
+    background-color: #333;
+}
+
+nav a { 
+    display: flex;
+    justify-content: left;
+	align-items: center;
+	height: 10vh;
+    color: rgb(233, 7, 7);
+    text-align: center;
+    font-size: 30px;
+    font-family: Tahoma, Verdana, sans-serif;
+    text-decoration: none;
+    font-style: italic;
+
+}
+.logo{
+	width: 9vh;
+	height: 10vh;
+    margin-right: 20px;
+}
+
+nav a:hover {
+    background-color: #ddd;
+    color: black;
+    height: 10vh;
+}
+
+.link-list {
+    list-style-type: none;
+    display: flex;
+    justify-content: left;
+    margin: 0;
+    padding: 0;
+}
+
+.link-list li {
+    margin-right: 20px;
+    padding: 0;
+}
