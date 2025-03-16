@@ -1,19 +1,26 @@
-function sendData(url, methode, data){
+async function sendData(url, method, data) {
+    let result; 
     
-    fetch(url, {
-        method: methode,
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: data
-        })
-        .then(response => {
-        console.log('Response from Flask:', response);
-        })
-        .catch(error => {
-        console.error('Error sending data:', error);
+    try {
+        const response = await fetch(url, {
+            method: method,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: data
         });
-    return response
+        console.log('Response from Flask:', response);
+
+        const jsonData = await response.json();
+        console.log('Received data:', jsonData);
+
+        result = jsonData;
+
+    } catch (error) {
+        console.error('Error sending data:', error);
+    }
+
+    return result ? result.data : undefined; 
 }
 
 
@@ -23,6 +30,7 @@ const power_on = document.getElementById("power");
 const set = document.getElementById("set");
 const error_current = document.getElementById("error_current")
 const error_voltage = document.getElementById("error_voltage")
+const ident = document.getElementById("identification")
 
 
 set.addEventListener("click", function() {
@@ -61,5 +69,8 @@ power_on.addEventListener("click", function() {
     sendData('/power', 'POST', data);
 });
 
+sendData('/ident', 'GET').then(result => {
+    ident.innerHTML = result
+})
 
             

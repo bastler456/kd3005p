@@ -63,7 +63,7 @@ class Kd500p():
                         "output": output}
         return result
 
-    def get_identification(self) -> float:
+    def get_identification(self) -> str:
         command: str = "*IDN?"
         self.__uart.send_line(command)
         return self.__uart.read_line()
