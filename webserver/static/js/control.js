@@ -62,4 +62,9 @@ power_on.addEventListener("click", function() {
 });
 
 
+sendData('/ident', 'GET').then(result => {
+    ident.innerHTML = result
+})
+
+
             
